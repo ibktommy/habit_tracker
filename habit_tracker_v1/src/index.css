@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pry-font: "Bebas Neue", sans-serif;
+  --sec-font: "Comfortaa", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: var(--sec-font);
+}
