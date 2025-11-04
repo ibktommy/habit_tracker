@@ -1,0 +1,17 @@
+main {
+  width: 100vw;
+  height: 100vh;
+  background-color: #302A2A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:root {
+  --text-shadow: 0px 8px 8px rgba(0, 0, 0, 0.8);
+}
+
+svg {
+  width: 2rem;
+  height: 2rem;
+}

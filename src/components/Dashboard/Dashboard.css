@@ -1,0 +1,130 @@
+#dashboard {
+  min-width: 70%;
+  max-width: 85%;
+  height: 80%;
+  background: rgba(35, 23, 23, .7);
+  border: 1.4rem solid #250D0D;
+  border-radius: 2rem;
+  padding: 3rem;
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+}
+
+#dashboard::after {
+  content: "";
+  position: absolute;
+  height: 95%;
+  border: .1rem dashed #fff;
+  top: 5%;
+  left: 45%;
+  transform: translate(-45%, -3%);
+}
+
+#dashboard.overlay {
+  user-select: none;
+  background: linear-gradient(rgba(98, 0, 154, 0.7), rgba(49, 0, 78, 0.347))
+}
+
+.habit_input {
+  flex-basis: 45%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-self: center;
+}
+
+.habit_input h1 {
+  font-family: var(--pry-font);
+  font-size: clamp(5.5rem, 3rem, 1.8rem);
+  color: #fff;
+  letter-spacing: .2rem;
+  text-shadow: var(--text-shadow);
+}
+
+.habit_input form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.habit_input form label {
+  font-size: clamp(2rem, 1.8rem, 1.4rem);
+  letter-spacing: .2rem;
+  color: #f3f3f3;
+}
+
+.habit_input form input {
+  width: 30rem;
+  height: 4rem;
+  padding: 1rem;
+  border: .2rem solid #8B72F8;
+  border-radius: .5rem;
+}
+
+.habit_input form textarea {
+  width: 30rem;
+  height: 8rem;
+  resize: none;
+  border: .2rem solid #8B72F8;
+  border-radius: .5rem;
+  padding: 1rem;
+}
+
+.habit_input form input::placeholder,.habit_input form textarea::placeholder  {
+  font-family: var(--sec-font);
+  font-size: clamp(1.4rem, 1.2rem, 1rem);
+  letter-spacing: .2rem;
+  color: #989898;
+}
+
+.habit_input form input:focus, .habit_input form textarea:focus {
+  outline: .2rem solid #8B72F8;
+  transition: .2s ease outline;
+}
+
+.habit_input form button {
+  width: 14rem;
+  height: 4rem;
+  padding: 1.5rem .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: .2rem solid #8B72F8;
+  border-radius: .5rem;
+  color: #fff;
+  background: #8B72F8;
+  font-family: var(--sec-font);
+  font-size: clamp(1.4rem, 1.2rem, 1rem);
+  letter-spacing: .2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.habit_input button:hover {
+  border: .2rem solid #f3f3f3;
+  transition: .2s ease border;
+}
+
+.habit_input button:focus {
+  background: rgba(139, 114, 248, 0.748);
+  transition: .2s ease background;
+}
+
+.habit_list {
+  flex-basis: 55%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.habit_list h4 {
+  font-family: var(--pry-font);
+  font-size: clamp(2.5rem, 2rem, 1.8rem);
+  letter-spacing: .2rem;
+  color: #fff;
+  text-shadow: var(--text-shadow);
+}
+

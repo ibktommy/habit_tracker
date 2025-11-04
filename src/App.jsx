@@ -1,9 +1,13 @@
 import React from 'react'
+import Dashboard from "./components/Dashboard/Dashboard.jsx";
+import "./App.css";
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <main>
+      <Dashboard></Dashboard>
+    </main>
+  );
+};
 
 export default App
