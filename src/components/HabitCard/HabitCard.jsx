@@ -12,7 +12,8 @@ const HabitCard = () => {
         <div className="col_2">
           <p>Drink Water</p>
           <p>
-            Lörem ipsum semyd anapörektig tefas homor geocaching. Lid talepunkt Fade.
+            Lörem ipsum semyd anapörektig tefas homor geocaching. Lid talepunkt
+            Fade.
           </p>
           <div className="weekdays">
             <div className="day">
@@ -54,8 +55,8 @@ const HabitCard = () => {
       </div>
       <div className="habit_item">
         <div className="col_1">
-          <h6>Habit</h6>
-          <h6>Goal</h6>
+          <h6>Habit:</h6>
+          <h6>Goal:</h6>
         </div>
         <div className="col_2">
           <p>Drink Water</p>
@@ -98,6 +99,15 @@ const HabitCard = () => {
           <EditIcon />
         </div>
       </div>
+
+      {/* <div className="habit_edit_modal">
+        <CloseBoxIcon />
+        <textarea
+          id="edit_habit"
+          placeholder="Edit Habit (< 61 characters)"
+        ></textarea>
+        <button>Submit habit</button>
+      </div> */}
     </div>
   );
 };
