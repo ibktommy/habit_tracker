@@ -1,104 +1,72 @@
 import { CloseBoxIcon, ColorCheckIcon, EditIcon } from "../../assets/icons";
+import { deleteHabit } from "../../controllers/deleteHabit";
 import "./HabitCard.css";
 
-const HabitCard = () => {
+const HabitCard = ({ data, action }) => {
+  const { habitList } = data;
+  const { setHabitList } = action;
+
+  // function deleteHabit(id) {
+  //   let updated_habits = habitList.filter((habit) => habit.id !== id);
+  //   setHabitList(updated_habits);
+  // }
+
   return (
     <div className="habit_card">
-      <div className="habit_item">
-        <div className="col_1">
-          <h6>Habit:</h6>
-          <h6>Goal:</h6>
-        </div>
-        <div className="col_2">
-          <p>Drink Water</p>
-          <p>
-            Lörem ipsum semyd anapörektig tefas homor geocaching. Lid talepunkt
-            Fade.
-          </p>
-          <div className="weekdays">
-            <div className="day">
-              <p>M</p>
-              <div className="day_check">
-                <ColorCheckIcon />
+      {habitList.map((habitItem) => {
+        const { id, habit, goal } = habitItem;
+
+        return (
+          <div className="habit_item" key={id}>
+            <div className="col_1">
+              <h6>Habit:</h6>
+              <h6>Goal:</h6>
+            </div>
+            <div className="col_2">
+              <p>{habit}</p>
+              <p>{goal}</p>
+              <div className="weekdays">
+                <div className="day">
+                  <p>M</p>
+                  <div className="day_check">{/* <ColorCheckIcon /> */}</div>
+                </div>
+                <div className="day">
+                  <p>T</p>
+                  <div className="day_check"></div>
+                </div>
+                <div className="day">
+                  <p>W</p>
+                  <div className="day_check"></div>
+                </div>
+                <div className="day">
+                  <p>Th</p>
+                  <div className="day_check"></div>
+                </div>
+                <div className="day">
+                  <p>F</p>
+                  <div className="day_check"></div>
+                </div>
+                <div className="day">
+                  <p>Sa</p>
+                  <div className="day_check"></div>
+                </div>
+                <div className="day">
+                  <p>Su</p>
+                  <div className="day_check"></div>
+                </div>
               </div>
             </div>
-            <div className="day">
-              <p>T</p>
-              <div className="day_check"></div>
-            </div>
-            <div className="day">
-              <p>W</p>
-              <div className="day_check"></div>
-            </div>
-            <div className="day">
-              <p>Th</p>
-              <div className="day_check"></div>
-            </div>
-            <div className="day">
-              <p>F</p>
-              <div className="day_check"></div>
-            </div>
-            <div className="day">
-              <p>Sa</p>
-              <div className="day_check"></div>
-            </div>
-            <div className="day">
-              <p>Su</p>
-              <div className="day_check"></div>
-            </div>
-          </div>
-        </div>
-        <div className="col_3">
-          <CloseBoxIcon />
-          <EditIcon />
-        </div>
-      </div>
-      <div className="habit_item">
-        <div className="col_1">
-          <h6>Habit:</h6>
-          <h6>Goal:</h6>
-        </div>
-        <div className="col_2">
-          <p>Drink Water</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit Ipsa</p>
-          <div className="weekdays">
-            <div className="day">
-              <p>M</p>
-              <div className="day_check">
-                <ColorCheckIcon />
+            <div className="col_3">
+              <div onClick={() => deleteHabit(id, setHabitList)}>
+                <CloseBoxIcon />
+              </div>
+              <div>
+                <EditIcon />
               </div>
             </div>
-            <div className="day">
-              <p>T</p>
-              <div className="day_check"></div>
-            </div>
-            <div className="day">
-              <p>W</p>
-              <div className="day_check"></div>
-            </div>
-            <div className="day">
-              <p>Th</p>
-              <div className="day_check"></div>
-            </div>
-            <div className="day">
-              <p>F</p>
-              <div className="day_check"></div>
-            </div>
-            <div className="day">
-              <p>Sa</p>
-              <div className="day_check"></div>
-            </div>
-            <div className="day">
-              <p>Su</p>
-              <div className="day_check"></div>
-            </div>
           </div>
-        </div>
-        <div className="col_3">
-          <CloseBoxIcon />
-          <EditIcon />
-        </div>
-      </div>
+        );
+      })}
 
       {/* <div className="habit_edit_modal">
         <CloseBoxIcon />

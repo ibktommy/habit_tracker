@@ -1,7 +1,7 @@
 #dashboard {
-  min-width: 70%;
-  max-width: 85%;
-  height: 80%;
+  width: 95rem;
+  /* height: 80%; */
+  aspect-ratio: 3 / 2;
   background: rgba(35, 23, 23, .7);
   border: 1.4rem solid #250D0D;
   border-radius: 2rem;
@@ -125,6 +125,7 @@
 }
 
 .habit_list {
+  min-width: 55%;
   /* flex-basis: 60%; */
   flex-shrink: 1;
   display: flex;

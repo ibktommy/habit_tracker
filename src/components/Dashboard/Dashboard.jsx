@@ -1,8 +1,14 @@
 import { useState } from "react";
 import HabitCard from "../HabitCard/HabitCard";
 import "./Dashboard.css";
+import getHabitList from "../../controllers/getHabitList";
 
 const Dashboard = () => {
+  // State for habit name, goal, and list
+  const [habit, setHabit] = useState("");
+  const [goal, setGoal] = useState("");
+  const [habitList, setHabitList] = useState([])
+
   return (
     <section id="dashboard" className="overlay">
       <div className="habit_input">
@@ -13,17 +19,29 @@ const Dashboard = () => {
             type="text"
             id="habit"
             placeholder="Write a new habit here..."
+            value={habit}
+            onChange={(event) => {
+              setHabit(event.target.value);
+            }}
           />
           <textarea
             id="habit"
+            value={goal}
             placeholder="Write the goal for this habit (< 61 characters)"
+            onChange={(event) => setGoal(event.target.value)}
           ></textarea>
-          <button>Submit habit</button>
+          <button
+            onClick={(event) => {
+              getHabitList(event, habit, goal, setHabit, setGoal,setHabitList);
+            }}
+          >
+            Submit habit
+          </button>
         </form>
       </div>
       <div className="habit_list">
         <h4>Your Habits:</h4>
-        <HabitCard />
+        <HabitCard data={{ habitList }} action={{setHabitList}}/>
       </div>
     </section>
   );
