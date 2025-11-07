@@ -11,6 +11,7 @@ const getHabitList = (event, habit, goal, setHabit, setGoal, setHabitList) => {
       id: Date.now().toString() + Math.random().toString(36).substr(2, 5),
       habit: habit,
       goal: goal,
+      timeCreated: Date.now()
     };
     setHabitList((prevHabits) => [...prevHabits, new_habit]);
     setHabit("");

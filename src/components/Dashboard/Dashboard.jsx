@@ -7,10 +7,11 @@ const Dashboard = () => {
   // State for habit name, goal, and list
   const [habit, setHabit] = useState("");
   const [goal, setGoal] = useState("");
-  const [habitList, setHabitList] = useState([])
+  const [habitList, setHabitList] = useState([]);
+  const [overlay, setOverlay] = useState(false);
 
   return (
-    <section id="dashboard" className="overlay">
+    <section id="dashboard" className={overlay ? "overlay" : ""}>
       <div className="habit_input">
         <h1>Personal Habit Tracker</h1>
         <form>
@@ -32,7 +33,7 @@ const Dashboard = () => {
           ></textarea>
           <button
             onClick={(event) => {
-              getHabitList(event, habit, goal, setHabit, setGoal,setHabitList);
+              getHabitList(event, habit, goal, setHabit, setGoal, setHabitList);
             }}
           >
             Submit habit
@@ -41,7 +42,7 @@ const Dashboard = () => {
       </div>
       <div className="habit_list">
         <h4>Your Habits:</h4>
-        <HabitCard data={{ habitList }} action={{setHabitList}}/>
+        <HabitCard data={{ habitList }} action={{ setHabitList, setOverlay }} />
       </div>
     </section>
   );

@@ -1,15 +1,21 @@
+import { useState } from "react";
 import { CloseBoxIcon, ColorCheckIcon, EditIcon } from "../../assets/icons";
 import { deleteHabit } from "../../controllers/deleteHabit";
+import {
+  editHabit,
+  closeEditModal,
+  submitEditedGoal,
+} from "../../controllers/handleGoalEdit";
 import "./HabitCard.css";
 
 const HabitCard = ({ data, action }) => {
   const { habitList } = data;
-  const { setHabitList } = action;
-
-  // function deleteHabit(id) {
-  //   let updated_habits = habitList.filter((habit) => habit.id !== id);
-  //   setHabitList(updated_habits);
-  // }
+  const { setHabitList, setOverlay } = action;
+  const [editModal, setEditModal] = useState(false);
+  const [newGoal, setNewGoal] = useState("");
+  const [selectedHabit, setSelectedHabit] = useState("");
+  const [selectedHabitID, setSelectedHabitID] = useState("");
+  const [markHabit, setMarkHabit] = useState(false)
 
   return (
     <div className="habit_card">
@@ -60,7 +66,18 @@ const HabitCard = ({ data, action }) => {
               <div onClick={() => deleteHabit(id, setHabitList)}>
                 <CloseBoxIcon />
               </div>
-              <div>
+              <div
+                onClick={() =>
+                  editHabit(
+                    habitItem,
+                    setNewGoal,
+                    setEditModal,
+                    setOverlay,
+                    setSelectedHabit,
+                    setSelectedHabitID
+                  )
+                }
+              >
                 <EditIcon />
               </div>
             </div>
@@ -68,14 +85,34 @@ const HabitCard = ({ data, action }) => {
         );
       })}
 
-      {/* <div className="habit_edit_modal">
-        <CloseBoxIcon />
-        <textarea
-          id="edit_habit"
-          placeholder="Edit Habit (< 61 characters)"
-        ></textarea>
-        <button>Submit habit</button>
-      </div> */}
+      {editModal && (
+        <div className="habit_edit_modal">
+          <div onClick={() => closeEditModal(setEditModal, setOverlay)}>
+            <CloseBoxIcon />
+          </div>
+          <p>Habit: {selectedHabit}</p>
+          <textarea
+            id="edit_habit"
+            placeholder="Edit Habit (< 61 characters)"
+            value={newGoal}
+            onChange={(event) => setNewGoal(event.target.value)}
+          ></textarea>
+          <button
+            onClick={() =>
+              submitEditedGoal(
+                habitList,
+                selectedHabitID,
+                newGoal,
+                setHabitList,
+                setEditModal,
+                setOverlay
+              )
+            }
+          >
+            Submit habit
+          </button>
+        </div>
+      )}
     </div>
   );
 };

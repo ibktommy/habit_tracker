@@ -22,7 +22,7 @@
   transform: translate(-40%, -3%);
 }
 
-/* #dashboard.overlay {
+#dashboard.overlay {
   user-select: none;
 }
 
@@ -36,7 +36,7 @@
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
   backdrop-filter: blur(1px);
   z-index: 10;
-} */
+}
 
 .habit_input {
   flex-basis: 40%;
